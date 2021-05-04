@@ -142,6 +142,18 @@ namespace Exchange {
         virtual uint32_t HTTPCookieAcceptPolicy(HTTPCookieAcceptPolicyType& policy /* @out */) const = 0;
         virtual uint32_t HTTPCookieAcceptPolicy(const HTTPCookieAcceptPolicyType policy) = 0;
 
+        // @property
+        // @brief User scripts used by the browser
+        // @param uris JSON array containing URIs pointing to user scripts, supported protocols: file://
+        virtual uint32_t UserScripts(string& uris /* @out */) const = 0;
+        virtual uint32_t UserScripts(const string& uris) = 0;
+
+        // @property
+        // @brief User style sheets used by the browser
+        // @param uris JSON array containing URIs pointing to user style sheets, supported protocols: file://
+        virtual uint32_t UserStyleSheets(string& uris /* @out */) const = 0;
+        virtual uint32_t UserStyleSheets(const string& uris) = 0;
+
         // @brief Response for legacy $badger.
         // @param payload base64 encoded JSON string response to be delivered to $badger.callback(pid, success, json)
         virtual uint32_t BridgeReply(const string& payload) = 0;
